@@ -7,12 +7,21 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        allRounds();
+    }
+
+    public static void allRounds() {
         double comp = 0;
         double user = 0;
 
-        double[] res = round(comp, user);
-        comp = res[0];
-        user = res[1];
+        int z = 1;
+        while (z < 7) {
+            System.out.println("----- " + z + " round -----");
+            double[] res = round(comp, user);
+            comp = res[0];
+            user = res[1];
+            z++;
+        }
     }
 
     public static double[] round(double comp, double user) {
@@ -49,6 +58,7 @@ public class Main {
             System.out.println("User: " + user);
         } catch (ParseException | IllegalArgumentException ex) {
             System.out.println("Please enter right comand!");
+            round(comp,user);
         }
         return new double[]{comp, user};
 
