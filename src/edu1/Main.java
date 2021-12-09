@@ -2,6 +2,7 @@ package edu1;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
+//import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -50,7 +51,7 @@ public class Main {
 
     public static int[][] round(int[] comp, int[] user) {
         Random rnd = new Random();
-        int random = rnd.nextInt(4) + 1;
+        int random = rnd.nextInt(3) + 1;
 
         printConditions();
         Scanner sc = new Scanner(System.in);
@@ -64,31 +65,24 @@ public class Main {
 //            System.out.println("user turn: " + intInput);
 
             if (random == intInput) {
-//                comp = comp + 0.5;
                 comp[2] = comp[2] + 1;
                 user[2] = user[2] + 1;
             } else if (random == 1 && intInput == 2) {
                 comp[0] = comp[0] + 1;
                 user[1] = user[1] + 1;
-//                comp++;
             } else if (random == 1 && intInput == 3) {
-//                user++;
                 user[0] = user[0] + 1;
                 comp[1] = comp[1] + 1;
             } else if (random == 2 && intInput == 1) {
-//                user++;
                 user[0] = user[0] + 1;
                 comp[1] = comp[1] + 1;
             } else if (random == 2 && intInput == 3) {
-//                comp++;
                 comp[0] = comp[0] + 1;
                 user[1] = user[1] + 1;
             } else if (random == 3 && intInput == 1) {
-//                comp++;
                 comp[0] = comp[0] + 1;
                 user[1] = user[1] + 1;
             } else if (random == 3 && intInput == 2) {
-//                user++;
                 user[0] = user[0] + 1;
                 comp[1] = comp[1] + 1;
             }
