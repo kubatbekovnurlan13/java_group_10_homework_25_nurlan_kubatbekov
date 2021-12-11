@@ -2,7 +2,6 @@ package edu1;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
-//import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -31,8 +30,8 @@ public class Main {
     }
 
     public static void printRes(String name, int win, int lost, int equal, int rounds) {
-        String line = "+---------------------------------------------------------+";
-        String format = "| %-10s | %-10s | %-10s | %-10s | %-10s |";
+        String line = "+-------------------------------------------------+";
+        String format = "| %-7s | %-7s | %-7s | %-7s | %-7s |";
         String titles = String.format(format,
                 "Wins",
                 "Losts",
@@ -89,7 +88,7 @@ public class Main {
 //            System.out.println("Comp: " + Arrays.toString(comp));
 //            System.out.println("User: " + Arrays.toString(user));
         } catch (ParseException | IllegalArgumentException ex) {
-            System.out.println("Please enter right comand!");
+            System.out.println("WARNING!!! =====> Please enter right comand!");
             round(comp, user);
         }
         int[][] res = {comp, user};
