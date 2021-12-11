@@ -7,7 +7,27 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        allRounds();
+        start();
+    }
+
+    public static void start() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("● COMPLICATED  => enter 1");
+        System.out.println("● NORMAL       => enter 2");
+        System.out.print("Which version do you want to play?  ");
+        String versionNumber = sc.nextLine();
+        try {
+            int intVersionNumber = tryInt(versionNumber);
+            versionCheckComand(intVersionNumber);
+            if (intVersionNumber == 1) {
+                allComplicatedRounds();
+            } else {
+                allNormalRounds();
+            }
+        } catch (ParseException | IllegalArgumentException e) {
+            System.out.println("WARNING!!! =====> Please enter right comand!");
+            start();
+        }
     }
 
     public static String makeNormalOption(int index) {
@@ -28,9 +48,30 @@ public class Main {
         return arr[index] + "";
     }
 
-    public static void allRounds() {
+    public static void allNormalRounds() {
         int[] comp = new int[3];
         int[] user = new int[3];
+
+        System.out.println(" Normal game started! ");
+
+        int z = 1;
+        while (z < 7) {
+            System.out.println("----- " + z + " round -----");
+            int[][] res = normalRound(comp, user);
+            comp = res[0];
+            user = res[1];
+            z++;
+        }
+
+        printRes("Comp", comp[0], comp[1], comp[2], (z - 1));
+        printRes("User", user[0], user[1], user[2], (z - 1));
+    }
+
+    public static void allComplicatedRounds() {
+        int[] comp = new int[3];
+        int[] user = new int[3];
+
+        System.out.println(" Comlicated game started! ");
 
         int z = 1;
         while (z < 7) {
@@ -255,6 +296,12 @@ public class Main {
 
     public static void normalCheckComand(int intInput) {
         if (intInput <= 0 || intInput > 3) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public static void versionCheckComand(int intInput) {
+        if (intInput <= 0 || intInput > 2) {
             throw new IllegalArgumentException();
         }
     }
